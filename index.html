@@ -5,22 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pdf </title>
-    
-
 </head>
 <body>
+    Name: <input type="text" id="name" placeholder="Enter Your Name"> <br>
+    Number: <input type="number" id="Number" placeholder="Enter Your Number"> <br> 
+    Age :<input type="number" id="Age" placeholder="Enter Your Age"> <br>
+    Country: <input type="text" id="Country" placeholder="Enter Your Country Name"> <br>
     <button type="button" onclick="PDF()">Download PDF</button>
 </body>
 <script>
     function PDF() {
+        var name = document.getElementById("name").value, number =document.getElementById("Number").value,
+            age = document.getElementById("Age").value , coutry = document.getElementById("Country").value;
 
+console.log("i am clicked!!");
+// import { jsPDF } from "jspdf";
 var doc = new jsPDF();
-
-doc.text(20, 20, 'Hey guys!!');
+      //(x , y )
+doc.text(20, 20, 'Your Name :'+ name);
+doc.text(20, 30, 'Your Number :'+ number);
+doc.text(20, 40, 'Your Age :'+ age);
 doc.addPage();
-doc.text(20, 20, 'This is  Meshv !');
-doc.save('Test.pdf');
+doc.text(30, 20, 'Your Country:' + coutry);
+doc.save("Test.pdf");
+
 }
+
 </script>
+<!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 </html>
